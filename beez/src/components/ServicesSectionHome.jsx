@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import  { forwardRef } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ArrowRight, Check } from 'lucide-react';
-
+import {Link} from "react-router-dom";
 const ServicesSection = forwardRef((props, ref) => {
   const [expandedService, setExpandedService] = useState(0);
   const [hoveredService, setHoveredService] = useState(0);
@@ -11,7 +11,8 @@ const services = [
   {
     id: 1,
     title: 'Web & App Development',
-    image: '/web_service_logo.png',
+    link:'/services/web-app-development',
+    image: 'https://res.cloudinary.com/dwz07ormq/image/upload/v1760026417/web_service_logo_rl7um1.png',
     description:
       'We design and develop modern, scalable, and high-performing web and mobile applications tailored to your business goals.',
     details: [
@@ -26,7 +27,8 @@ const services = [
   {
     id: 2,
     title: 'Branding & Identity',
-    image: '/branding_service_logo.png',
+    link:'/services/branding',
+    image: 'https://res.cloudinary.com/dwz07ormq/image/upload/v1760026415/branding_service_logo_fa5bam.png',
     description:
       'We help you create a strong, memorable, and consistent brand identity that connects emotionally with your audience.',
     details: [
@@ -41,7 +43,8 @@ const services = [
   {
     id: 3,
     title: 'Digital Marketing',
-    image: '/marketing_service_logo.png',
+    link:'/services/digital-marketing',
+    image: 'https://res.cloudinary.com/dwz07ormq/image/upload/v1760026417/marketing_service_logo_abelyq.png',
     description:
       'We grow your brand online through data-driven digital marketing campaigns and consistent creative execution.',
     details: [
@@ -56,7 +59,8 @@ const services = [
   {
     id: 4,
     title: 'Graphics & Media Production',
-    image: '/media_service_logo.png',
+    link:'/services/media-production',
+    image: 'https://res.cloudinary.com/dwz07ormq/image/upload/v1760026416/media_service_logo_usuh0b.png',
     description:
       'Our creative team delivers high-quality graphics, videos, and media assets that make your brand visually impactful.',
     details: [
@@ -70,7 +74,8 @@ const services = [
   {
     id: 5,
     title: 'SaaS Development',
-    image: '/saas_service_logo.png',
+    link:'/services/web-app-development',
+    image: 'https://res.cloudinary.com/dwz07ormq/image/upload/v1760026416/saas_service_logo_argw77.png',
     description:
       'We build robust SaaS products from concept to launch — scalable, secure, and user-friendly platforms for modern businesses.',
     details: [
@@ -90,7 +95,7 @@ const services = [
   };
 
   return (
-    <div ref={ref}  className="relative bg-black mt-0 text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-16 overflow-hidden">
+    <div ref={ref}  className="relative z-90 bg-black mt-0 text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-16 overflow-hidden">
       {/* Background Hexagonal Gradient Orbs */}
       <div className="absolute top-20 left-10 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 blur-3xl rounded-full" 
            style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }} />
@@ -110,10 +115,10 @@ const services = [
               transition={{ duration: 0.6 }}
               className="mb-12"
             >   
-                <p className="text-orange-500 font-semibold text-sm md:text-lg uppercase tracking-wider mb-3">
+                <p className="text-orange-500 font-semibold text-sm md:text-lg uppercase tracking-wider">
                 Services
               </p>
-              <h2 className="text-3xl mt-8 sm:text-5xl lg:text-6xl font-pilogue font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Expertise Solutions
               </h2>
               
@@ -182,8 +187,8 @@ const services = [
                   </div>
 
                   {/* Mobile View - Navigate to Service Page */}
-                  <a
-                    href={`/services/${service.title.toLowerCase().replace(/\//g, '-').replace(/\s+/g, '-')}`}
+                  <Link
+                    to={service.link}
                     className="lg:hidden w-full py-5 flex items-center justify-between group active:bg-gradient-to-r active:from-yellow-500/10 active:to-orange-500/10 transition-all duration-200 px-2"
                   >
                     <div className="flex items-center gap-3">
@@ -195,7 +200,7 @@ const services = [
                       </span>
                     </div>
                     <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-yellow-400 group-hover:translate-x-1 transition-all" />
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
             </div>

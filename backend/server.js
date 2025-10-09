@@ -36,22 +36,25 @@ const INTERNAL_RECIPIENT = process.env.INTERNAL_RECIPIENT; // beeztech.studios@g
 // --- 3. Middleware ---
 
 // Configure CORS to allow requests from your React frontend
-const allowedOrigins = [
-  "http://localhost:5173", "https://www.beeztech.studio/",
-//   "YOUR_PRODUCTION_FRONTEND_URL",
-];
-const corsOptions = {
-  // NOTE: For better security, replace 'http://localhost:5173' with your actual frontend URL.
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: "POST",
-};
-app.use(cors(corsOptions));
+// const allowedOrigins = [
+//   "http://localhost:5173", "https://www.beeztech.studio/",
+// //   "YOUR_PRODUCTION_FRONTEND_URL",
+// ];
+// const corsOptions = {
+//   // NOTE: For better security, replace 'http://localhost:5173' with your actual frontend URL.
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   methods: "POST",
+// };
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+}));
 
 // Use body-parser middleware for JSON data
 app.use(bodyParser.json());

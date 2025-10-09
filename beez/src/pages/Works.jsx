@@ -16,7 +16,7 @@ const HeroSection = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="max-w-7xl mx-auto pt-16 sm:pt-24 lg:pt-32 pb-24 sm:pb-32 lg:pb-28 relative overflow-hidden"
+      className="max-w-7xl mx-auto pt-16 sm:pt-24 lg:pt-28 mb-12 relative overflow-hidden"
     >
       {/* Background Glow Effect */}
       {/* <div className="absolute top-0 -left-1/4 w-3/4 h-3/4 bg-black-500/10 blur-[100px] pointer-events-none" /> */}
@@ -196,10 +196,10 @@ const PortfolioPage = () => {
         delay: index * 0.15,
         ease: [0.22, 1, 0.36, 1]
       }}
-      className="group bg-white/5 backdrop-blur-2xl rounded-2xl hover:scale-105 transition-transform duration-700 ease-out cursor-pointer"
+      className="group bg-white/5 backdrop-blur-2xl my-8 md:m-8 rounded-2xl hover:scale-105 transition-transform duration-700 ease-out cursor-pointer"
     >
       {/* Image Container */}
-      <div className="relative aspect-[5/4] overflow-hidden bg-transparent mb-6 p-4 shadow-lg"> 
+      <div className="relative aspect-[5/4] overflow-hidden bg-transparent mb-6 p-0 md:p-6 shadow-lg"> 
         <motion.img
           src={item.image}
           alt={item.title}
@@ -254,6 +254,7 @@ const PortfolioPage = () => {
     <div className="bg-white">
         {/* Fixed Background Pattern */}
         <div className="fixed inset-0 opacity-15 pointer-events-none">
+        
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23ff8800' stroke-width='1'/%3E%3C/svg%3E")`,
           backgroundSize: '60px 60px'
@@ -276,9 +277,9 @@ const PortfolioPage = () => {
         <HeroSection />
 
         {/* Gallery Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 pb-24 sm:pb-32 lg:pb-40">
+        <div className="grid lg:grid-cols-2  gap-0 lg:gap-4 pb-24 sm:pb-32 lg:pb-32">
           {/* Left Column - Parallax y1 */}
-          <div className="space-y-8  lg:space-y-12">
+          <div className="space-y-8   lg:space-y-12">
             {portfolioItems.slice(0, 2).map((item, index) => (
               <PortfolioCard 
                 key={item.id} 
@@ -290,7 +291,7 @@ const PortfolioPage = () => {
           </div>
 
           {/* Right Column - Parallax y2 */}
-          <div className="space-y-8 lg:space-y-12 lg:mt-20"> 
+          <div className="space-y-8    lg:space-y-12 mt-0 lg:mt-20"> 
             {portfolioItems.slice(2, 4).map((item, index) => (
               <PortfolioCard 
                 key={item.id} 
@@ -302,16 +303,7 @@ const PortfolioPage = () => {
           </div>
         </div>
 
-        {/* View All Link */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-20 sm:mt-24 text-center"
-        >
-          
-        </motion.div>
+        
       </div>
     </div>
 

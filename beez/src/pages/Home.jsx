@@ -9,6 +9,7 @@ import PortfolioGallery from "../components/Portfolio";
 import TestimonialsSection from "../components/Testimonials";
 import BookACallForm from "../components/BookACallForm";
 import Navbar from "../components/Navbar";
+import PortfolioPage from "./Works";
 
 function Home() {
    const servicesRef = useRef(null);
@@ -25,10 +26,12 @@ function Home() {
       <HeroSection scrollToServices={scrollToServices} />
       <Slider />
       <AboutUsSection />
-      <PortfolioGallery />
+      {/* <PortfolioGallery /> */}
+      
       <ServicesSection ref={servicesRef} />
-      <TestimonialsSection />
-      <ContactSection />
+      <PortfolioPage/> 
+      {/* <TestimonialsSection /> */}
+      {/* <ContactSection /> */}
       {/* <BookACallForm/> */}
 
     </div>

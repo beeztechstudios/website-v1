@@ -1,31 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Contact', href: '/contact' }
+    // { name: 'Services', href: '/services' },
+    { name: 'Portfolio', href: '/works' },
+    { name: 'Contact', href: '/book-call' }
   ];
 
   const services = [
     
-    { name: 'Graphic & Media Production', href: '/services/graphic-design' },
-    { name: 'Web & App Development', href: '/services/web-design' },
+    { name: 'Graphic & Media Production', href: '/services/media-production' },
+    { name: 'Web & App Development', href: '/services/web-development' },
     { name: 'Branding & Idenity', href: '/services/branding' },
     { name: 'Digital Marketing', href: '/services/digital-marketing' },
     { name: 'SaaS Development', href: '/services/ui-ux-design' },
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com' },
+    // { name: 'Facebook', icon: Facebook, href: 'https://facebook.com' },
     { name: 'Twitter', icon: Twitter, href: 'https://twitter.com' },
     { name: 'Instagram', icon: Instagram, href: 'https://instagram.com' },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com' }
+    // { name: 'YouTube', icon: Youtube, href: 'https://youtube.com' }
   ];
 
   return (
@@ -106,20 +107,20 @@ const Footer = () => {
               <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                 <span>
-                  123 Business Street,<br />
+                  3v/1 Prabhat Nagar sec.5,<br />
                   Udaipur, Rajasthan, India
                 </span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Phone className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <a href="tel:+911234567890" className="hover:text-orange-500 transition-colors">
-                  +91 123 456 7890
+                <a href="tel:+917877571101" className="hover:text-orange-500 transition-colors">
+                  +917877571101
                 </a>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Mail className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <a href="mailto:info@beeztech.com" className="hover:text-orange-500 transition-colors">
-                  info@beeztech.com
+                <a href="mailto:hello@beeztech.studio" className="hover:text-orange-500 transition-colors">
+                  hello@beeztech.studio
                 </a>
               </li>
             </ul>
@@ -134,16 +135,16 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-6">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
           <p>
-            © {new Date().getFullYear()} BeezTech. All rights reserved.
+            © 2024 BeezTech. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="/privacy-policy" className="hover:text-orange-500 transition-colors">
+            <Link to="/privacy-policy" className="hover:text-orange-500 transition-colors">
               Privacy Policy
-            </a>
+            </Link>
             <span className="text-gray-600">|</span>
-            <a href="/terms-of-service" className="hover:text-orange-500 transition-colors">
+            <Link to="/terms-of-service" className="hover:text-orange-500 transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

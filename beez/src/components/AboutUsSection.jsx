@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-
+import {Link} from 'react-router-dom';
 const AboutUsSection = () => {
   return (
-    <div className="bg-white py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div className="relative  py-8 sm:py-12 bg-white z-60  mb-1  md:mb-0 lg:py-20 ">
+      <div className="max-w-7xl mx-auto ">
+        <div className="grid lg:grid-cols-2 gap-12 px-4 sm:px-6lg:gap-16 items-center">
           
           {/* Left Side - Visual Elements */}
           <motion.div
@@ -29,7 +29,7 @@ const AboutUsSection = () => {
               className="relative bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
             >
               <img
-                src="/workspace.jpeg"
+                src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760026418/workspace_fzoeje.jpg"
                 alt="Modern workspace"
                 className="w-full h-auto"
               />
@@ -134,6 +134,7 @@ const AboutUsSection = () => {
             </motion.p>
 
             {/* Button */}
+            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -141,6 +142,7 @@ const AboutUsSection = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="pt-4"
             >
+              <Link to="/about">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -149,6 +151,7 @@ const AboutUsSection = () => {
                 <span>Know More</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
 

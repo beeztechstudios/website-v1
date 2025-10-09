@@ -127,7 +127,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <div className=" py-16 sm:py-20 lg:py-8 px-4 sm:px-6 lg:px-16 overflow-hidden">
+    <div className=" py-8 sm:py-12 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden bg-white z-80 relative">
       <div className="max-w-7xl mx-auto  space-y-6">
         {/* Large Background Text and Heading (No changes needed) */}
         <motion.div
@@ -136,7 +136,7 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <span className="text-orange-500 font-semibold text-sm md:text-lg uppercase tracking-wider mb-3">
+          <span className="text-orange-500 font-semibold text-sm md:text-lg uppercase tracking-wider">
             Testimonials
           </span>
         </motion.div>
@@ -146,12 +146,12 @@ const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-3xl mt-8 sm:text-5xl lg:text-6xl font-pilogue font-bold mb-28 bg-black bg-clip-text text-transparent"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight"
         >
-          Why Brands Trust Us
+          Why Brands Trust
         </motion.h2>
         
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10  mt-12 md:mt-16 lg:mt-18 max-w-7xl mx-auto">
           {/* 🌟 Key Change: Removed 'items-center', defaulted to vertical stack, and used 'lg:flex-row' for desktop. */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-6">
             
@@ -169,7 +169,7 @@ const TestimonialsSection = () => {
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <img
-                  src="/testimonial.jpeg"
+                  src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760026417/testimonial_yuuyjn.jpg"
                   alt="Background"
                   className="w-full h-full object-cover"
                 />

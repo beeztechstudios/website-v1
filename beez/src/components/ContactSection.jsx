@@ -552,10 +552,10 @@ const ContactSection = () => {
     // entirely within BookACallFormContent
 
     return (
-        <div className="relative bg-white md:mt-24 py-20 sm:py-24 lg:py-32 px-2 sm:px-6 lg:px-6 overflow-hidden">
+        <div className="relative bg-white  py-20 sm:py-24 lg:py-32 px-2 sm:px-6 lg:px-6 overflow-hidden">
             {/* Large Background Text */}
-            <div className="absolute top-2 md:-top-12 left-0 right-0 overflow-hidden pointer-events-none">
-                <h2 className="text-[65px] text-center sm:text-[180px] lg:text-[170px] font-bold text-gray-300 whitespace-nowrap opacity-40 select-none">
+            <div className="absolute top-6 md:-top-12 left-0 right-0 overflow-hidden pointer-events-none">
+                <h2 className="text-[55px] text-center sm:text-[180px] lg:text-[170px] font-bold text-gray-300 whitespace-nowrap opacity-40 select-none">
                     Let's Connect
                 </h2>
             </div>
@@ -628,27 +628,27 @@ const ContactSection = () => {
                             {[...Array(3)].map((_, setIndex) => (
                               <React.Fragment key={setIndex}>
                                 {/* <img src="Icon.png" alt="ggg" className="h-10 md:h-16"></img> */}
-                                <span className="text-5xl font-pilogue font-extrabold sm:text-4xl md:text-[35px]   opacity-40">
+                                <span className="text-xl font-pilogue font-extrabold sm:text-4xl md:text-[35px]   opacity-40">
                                   hello@beeztech.studio
                                 </span>
                                 <img src="Icon.png" alt="ggg" className=" h-4 md:h-8"></img>
                 
-                                <span className="text-5xl sm:text-4xl md:text-[25px] font-pilogue font-bold">
+                                <span className="text-xl sm:text-4xl md:text-[25px] font-pilogue font-bold">
                                   hello@beeztech.studio
                                 </span>
                                 <img src="Icon.png" alt="ggg" className="h-4 md:h-8"></img>
                 
-                                <span className="text-5xl sm:text-4xl md:text-[25px] font-pilogue font-bold">
+                                <span className="text-xl sm:text-4xl md:text-[25px] font-pilogue font-bold">
                                   hello@beeztech.studio
                                 </span>
                                 <img src="Icon.png" alt="ggg" className="h-4 md:h-8"></img>
                 
-                                <span className="text-5xl sm:text-4xl md:text-[25px]  font-pilogue font-bold">
+                                <span className="text-xl sm:text-4xl md:text-[25px]  font-pilogue font-bold">
                                   hello@beeztech.studio
                                 </span>
                                 <img src="Icon.png" alt="ggg" className="h-4 md:h-8"></img>
                 
-                                <span className="text-5xl sm:text-4xl md:text-[25px] font-pilogue font-bold opacity-40">
+                                <span className="text-xl sm:text-4xl md:text-[25px] font-pilogue font-bold opacity-40">
                                   hello@beeztech.studio
                                 </span>
                                 <img src="Icon.png" alt="ggg" className="h-4 md:h-8 "></img>

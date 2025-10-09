@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Menu, X ,Phone } from 'lucide-react'; // Import Menu and X icons for the mobile toggle
+import { ChevronDown, Menu, X, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
@@ -9,14 +9,14 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
   const servicesRef = useRef(null);
-  const mobileMenuRef = useRef(null); // Ref for the mobile menu container
+  const mobileMenuRef = useRef(null);
 
-  // --- Services Data (Updated image placeholder for Mobile) ---
+  // --- Services Data ---
   const services = [
     {
       title: 'Web Development',
       description: 'Custom web applications with cutting-edge technologies.',
-      icon: '💻', // Using an emoji as a fallback/simple mobile icon
+      icon: '💻',
       image: '/web_service_logo.png',
       link: '/services/web-app-development'
     },
@@ -25,21 +25,21 @@ export default function Navbar() {
       description: 'Production ready Tailwind CSS components for your next project',
       icon: '✨',
       image: '/branding_service_logo.png',
-      link: '/services/branding' // Added missing link
+      link: '/services/branding'
     },
     {
       title: 'Digital Marketing',
       description: 'Never write from scratch again. Go from idea to blog in minutes.',
       icon: '📈',
       image: '/marketing_service_logo.png',
-      link: '/services/digital-marketing' // Added missing link
+      link: '/services/digital-marketing'
     },
     {
       title: 'Media Production',
       description: 'Stunning visual content that tells your story',
       icon: '🎬',
       image: '/media_service_logo.png',
-      link: '/services/media-production' // Added missing link
+      link: '/services/media-production'
     },
   ];
 
@@ -49,16 +49,14 @@ export default function Navbar() {
     };
 
     const handleClickOutside = (event) => {
-      // Close desktop services menu if click is outside
       if (servicesRef.current && !servicesRef.current.contains(event.target)) {
         setIsServicesOpen(false);
       }
-      // Keep mobile menu open state separate from desktop services state
     };
 
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
@@ -66,53 +64,57 @@ export default function Navbar() {
   }, []);
 
   const toggleServices = () => {
-    console.log(isServicesOpen);
-    
     setIsServicesOpen(!isServicesOpen);
   };
+
   const mobiletoggleServices = () => {
-    console.log(isMobileServicesOpen);
-    
     setIsMobileServicesOpen(!isMobileServicesOpen);
   };
-  
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    // Ensure desktop services dropdown is closed when opening mobile menu
-    setIsServicesOpen(false); 
+    setIsServicesOpen(false);
   };
-  
+
   const handleMobileNavLinkClick = (linkName) => {
     setActiveLink(linkName);
-    setIsMobileMenuOpen(false); // Close menu on link click
-    setIsServicesOpen(false); // Close services on link click
+    setIsMobileMenuOpen(false);
+    setIsServicesOpen(false);
+  };
+
+  // ✅ NEW: When clicking on a service inside mobile dropdown
+  const handleMobileServiceClick = (linkName) => {
+    setActiveLink(linkName);
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
+
+    // Optional smooth scroll to top after closing
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 200);
   };
 
   return (
     <>
-      {/* --- Desktop & Tablet Navbar (md:block) --- */}
+      {/* --- Desktop Navbar --- */}
       <nav
         className={`hidden md:block fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out 
           ${isScrolled 
-            ? 'w-[90%] max-w-[900px] top-2' // Smaller and higher up when scrolled
-            : 'w-[95%] max-w-[1330px] top-4' // Larger and lower when not scrolled
+            ? 'w-[90%] max-w-[900px] top-2' 
+            : 'w-[95%] max-w-[1330px] top-4'
           }`}
       >
         <div className="bg-white/50 backdrop-blur-2xl rounded-full  px-4 lg:px-8 py-3 ">
           <div className="flex items-center justify-between ">
-            
             {/* Logo */}
             <div className="w-[120px] lg:w-[160px] ">
               <Link to="/">
-                {/* Ensure your logo2.png exists and is appropriately sized */}
                 <img src="/Logo_Black.png" alt="Logo" className="w-full" />
               </Link>
             </div>
-            
+
             {/* Desktop Links */}
             <div className="flex items-center gap-6 lg:gap-8 ">
-
               {['works', 'about', 'blogs'].map((linkName) => (
                 <Link
                   key={linkName}
@@ -127,12 +129,9 @@ export default function Navbar() {
                   {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
                 </Link>
               ))}
-              
-              {/* Services Dropdown - Desktop */}
-              <div
-                ref={servicesRef}
-                className="relative flex justify-center items-center gap-1"
-              >
+
+              {/* Services Dropdown */}
+              <div ref={servicesRef} className="relative flex justify-center items-center gap-1">
                 <button 
                   onClick={toggleServices}
                   className={`text-base lg:text-xl font-medium transition-all duration-200 hover:scale-105 hover:font-bold flex items-center ${
@@ -148,7 +147,6 @@ export default function Navbar() {
                 {isServicesOpen && (
                   <div className="absolute top-full -right-60 mt-6 w-[500px] lg:w-[900px] animate-in fade-in slide-in-from-top-2 duration-300">
                     <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl border border-gray-100/30">
-                      {/* Grid now uses responsive columns, starting at 1 for safety on smaller tablets, then 2 for desktop */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"> 
                         {services.map((service, idx) => (
                           <Link
@@ -160,7 +158,6 @@ export default function Navbar() {
                             }}
                             className="group flex items-center p-6 rounded-xl bg-white/70 hover:bg-orange-50 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg border border-transparent hover:border-orange-300"
                           >
-                            {/* Left Partition: Image/Visual */}
                             <div className="flex-shrink-0 w-1/4 pr-3">
                               {service.image ? (
                                 <img 
@@ -170,12 +167,10 @@ export default function Navbar() {
                                 />
                               ) : (
                                 <div className="text-3xl text-center flex items-center justify-center w-full h-full">
-                                    {service.icon}
+                                  {service.icon}
                                 </div>
                               )}
                             </div>
-                            
-                            {/* Right Partition: Text Content */}
                             <div className="flex-grow w-3/4">
                               <h3 className="text-gray-900 font-bold text-lg mb-1 group-hover:text-orange-500 transition-colors line-clamp-1">
                                 {service.title}
@@ -191,31 +186,28 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-              
-              {/* Fixing the order to be after the dropdown button */}
-              
             </div>
 
-            {/* Book a Call Button */}
+            {/* Book Call Button */}
             <Link to="/book-call" className="bg-orange-500 hover:bg-black text-white px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2">
-                            Book Free Call <Phone className="w-5 h-5" />
-                          </Link>
+              Book Free Call <Phone className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </nav>
 
-      {/* --- Mobile Navbar (md:hidden) --- */}
-      <nav className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl  ">
+      {/* --- Mobile Navbar --- */}
+      <nav className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between">
-            {/* Logo Mobile */}
+            {/* Logo */}
             <div className="w-[140px]">
               <Link to="/">
                 <img src="/Logo_Black.png" alt="Logo" className="w-full" />
               </Link>
             </div>
-            
-            {/* Mobile Menu Toggle Button */}
+
+            {/* Toggle Button */}
             <button
               onClick={toggleMobileMenu}
               className="text-gray-700 p-2 border rounded-lg hover:bg-gray-50"
@@ -225,23 +217,18 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Content */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div 
+          <div
             ref={mobileMenuRef}
-            className="bg-white/95 backdrop-blur-xl border-t border-gray-200 px-4 py-4 space-y-4 animate-in slide-in-from-top-1 duration-200 overflow-y-auto max-h-[100vh]" // Added max-h and overflow for long content
+            className="bg-white/95 backdrop-blur-xl border-t border-gray-200 px-4 py-4 space-y-4 animate-in slide-in-from-top-1 duration-200 overflow-y-auto max-h-[100vh]"
           >
-            {/* Mobile Nav Links */}
-            
-            
-            {/* Mobile Services Dropdown */}
-            <div className="border-t border-gray-200 pt-4  ">
+            {/* Services Dropdown */}
+            <div className="border-t border-gray-200 pt-4">
               <button 
                 onClick={mobiletoggleServices}
-                className={`flex items-center justify-between w-full  text-lg font-medium transition-colors py-2 ${
-                  isServicesOpen 
-                    ? 'text-orange-500 font-bold' 
-                    : 'text-gray-700 hover:text-orange-500 '
+                className={`flex items-center justify-between w-full text-lg font-medium transition-colors py-2 ${
+                  isMobileServicesOpen ? 'text-orange-500 font-bold' : 'text-gray-700 hover:text-orange-500'
                 }`}
               >
                 Services
@@ -249,20 +236,22 @@ export default function Navbar() {
               </button>
               
               {isMobileServicesOpen && (
-                <div className="mt-3 space-y-3 ">
+                <div className="mt-3 space-y-3">
                   {services.map((service, idx) => (
                     <Link
                       key={idx}
                       to={service.link}
-                      // onClick={() => handleMobileNavLinkClick('services')}
+                      onClick={() => handleMobileServiceClick('services')}
                       className="block p-3 rounded-xl bg-orange-50 border border-orange-200 transition-shadow hover:shadow-md"
                     >
                       <div className="flex items-start gap-4">
-                        <div className="text-3xl flex-shrink-0"><img 
-                                  src={service.image} 
-                                  alt={service.title} 
-                                  className='rounded-lg object-cover w-16 h-full shadow-md' 
-                                /></div> {/* Use the defined icon/emoji */}
+                        <div className="text-3xl flex-shrink-0">
+                          <img 
+                            src={service.image} 
+                            alt={service.title} 
+                            className='rounded-lg object-cover w-16 h-full shadow-md' 
+                          />
+                        </div>
                         <div>
                           <h3 className="text-gray-900 font-bold text-base mb-1">
                             {service.title}
@@ -277,6 +266,8 @@ export default function Navbar() {
                 </div>
               )}
             </div>
+
+            {/* Other Links */}
             {['works', 'about', 'blogs'].map((linkName) => (
               <Link
                 key={linkName}
@@ -291,7 +282,6 @@ export default function Navbar() {
                 {linkName.charAt(0).toUpperCase() + linkName.slice(1)}
               </Link>
             ))}
-            
           </div>
         )}
       </nav>
