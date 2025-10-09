@@ -37,7 +37,7 @@ const INTERNAL_RECIPIENT = process.env.INTERNAL_RECIPIENT; // beeztech.studios@g
 
 // Configure CORS to allow requests from your React frontend
 const allowedOrigins = [
-  "http://localhost:5173",
+  "http://localhost:5173", "https://www.beeztech.studio/",
 //   "YOUR_PRODUCTION_FRONTEND_URL",
 ];
 const corsOptions = {
