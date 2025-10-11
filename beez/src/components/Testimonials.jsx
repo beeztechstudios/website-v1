@@ -127,7 +127,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <div className=" py-8 sm:py-12 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden bg-white z-80 relative">
+    <div className=" py-8 sm:py-12 lg:py-20 px-4 sm:px-6 lg:px-16 overflow-hidden bg-white z-60 relative">
       <div className="max-w-7xl mx-auto  space-y-6">
         {/* Large Background Text and Heading (No changes needed) */}
         <motion.div

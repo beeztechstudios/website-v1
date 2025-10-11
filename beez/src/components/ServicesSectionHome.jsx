@@ -95,7 +95,7 @@ const services = [
   };
 
   return (
-    <div ref={ref}  className="relative z-90 bg-black mt-0 text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-16 overflow-hidden">
+    <div ref={ref}  className="relative z-60 bg-black mt-0 text-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-16 overflow-hidden">
       {/* Background Hexagonal Gradient Orbs */}
       <div className="absolute top-20 left-10 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 blur-3xl rounded-full" 
            style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }} />

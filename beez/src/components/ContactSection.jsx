@@ -627,31 +627,31 @@ const ContactSection = () => {
                           >
                             {[...Array(3)].map((_, setIndex) => (
                               <React.Fragment key={setIndex}>
-                                {/* <img src="Icon.png" alt="ggg" className="h-10 md:h-16"></img> */}
+                                {/* <img src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760026414/Icon_tgjxar.svg" alt="ggg" className="h-10 md:h-16"></img> */}
                                 <span className="text-xl font-pilogue font-extrabold sm:text-4xl md:text-[35px]   opacity-40">
                                   hello@beeztech.studio
                                 </span>
-                                <img src="Icon.png" alt="ggg" className=" h-4 md:h-8"></img>
+                                <img src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760026414/Icon_tgjxar.svg" alt="ggg" className=" h-4 md:h-8"></img>
                 
                                 <span className="text-xl sm:text-4xl md:text-[25px] font-pilogue font-bold">
                                   hello@beeztech.studio
                                 </span>
-                                <img src="Icon.png" alt="ggg" className="h-4 md:h-8"></img>
+                                <img src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760026414/Icon_tgjxar.svg" alt="ggg" className="h-4 md:h-8"></img>
                 
                                 <span className="text-xl sm:text-4xl md:text-[25px] font-pilogue font-bold">
                                   hello@beeztech.studio
                                 </span>
-                                <img src="Icon.png" alt="ggg" className="h-4 md:h-8"></img>
+                                <img src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760026414/Icon_tgjxar.svg" alt="ggg" className="h-4 md:h-8"></img>
                 
                                 <span className="text-xl sm:text-4xl md:text-[25px]  font-pilogue font-bold">
                                   hello@beeztech.studio
                                 </span>
-                                <img src="Icon.png" alt="ggg" className="h-4 md:h-8"></img>
+                                <img src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760026414/Icon_tgjxar.svg" alt="ggg" className="h-4 md:h-8"></img>
                 
                                 <span className="text-xl sm:text-4xl md:text-[25px] font-pilogue font-bold opacity-40">
                                   hello@beeztech.studio
                                 </span>
-                                <img src="Icon.png" alt="ggg" className="h-4 md:h-8 "></img>
+                                <img src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760026414/Icon_tgjxar.svg" alt="ggg" className="h-4 md:h-8 "></img>
                               </React.Fragment>
                             ))}
                           </motion.div>

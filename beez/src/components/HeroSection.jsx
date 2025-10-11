@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, Star ,ArrowRight } from "lucide-react";
 const HeroSection = ({ scrollToServices }) => {
   return (
-    <div className="relative z-10 px-4 sm:px-6 lg:px-16 mt-0 sm:mt-16  lg:mt-20 py-1 md:py-12 lg:py-12 ">
+    <div className="relative z-10 px-4 sm:px-6 lg:px-16 mt-0 sm:mt-16  lg:mt-8 y-1 md:py-12 lg:py-12 ">
       <div className="max-w-7xl mx-auto ">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-0 lg:gap-8 ">
           <motion.div
@@ -67,6 +67,36 @@ const HeroSection = ({ scrollToServices }) => {
                 </Link>
               </div>
             </motion.div>
+            {/* Testimonials/Stats Block */}
+              <motion.div
+                
+                className="flex items-center gap-4 pt-4"
+              >
+                <div className="flex -space-x-3">
+                  {[...Array(3)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 border-2 border-white"
+                    ></div>
+                  ))}
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black text-white border-2 border-white flex items-center justify-center text-xs sm:text-sm font-bold">
+                    50+
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex text-orange-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-3 h-3 sm:w-4 sm:h-4 fill-current"
+                      />
+                    ))}
+                  </div>
+                  <span className="text-gray-700 font-medium text-xs sm:text-sm">
+                    Trusted By 50+ Businesses
+                  </span>
+                </div>
+              </motion.div>
           </motion.div>
 
           <div className="w-full  lg:w-1/2 flex justify-center items-center pt-8 lg:pt-0 order-1 lg:order-2">

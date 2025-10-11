@@ -11,7 +11,8 @@ import {
   Star,
   Phone,
   Mail,
-  Compass ,TrendingUp ,
+  Compass,
+  TrendingUp,
   MapPin,
 } from "lucide-react";
 import { Workflow, UploadCloud } from "lucide-react";
@@ -24,6 +25,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import ContactSection from "../components/ContactSection";
 const WebDevelopmentPage = () => {
   const [openFaq, setOpenFaq] = useState(-1);
   // Auto-scroll animation for image grid
@@ -94,48 +96,47 @@ const WebDevelopmentPage = () => {
     },
   ];
 
-
-    
-    
-
   const initialProjects = [
-  {
-    id: 1,
-    name: 'E-commerce Platform Relaunch',
-    category: 'Digital Strategy & Development',
-    image:     "https://www.framer.com/creators-assets/_next/image/?url=https%3A%2F%2Fy4pdgnepgswqffpt.public.blob.vercel-storage.com%2Ftemplates%2F51012%2Fxtract-xqzXUvtiwNfRpXdCNOSbHGhjlIXzdS&w=3840&q=100",
-    link: 'https://www.example.com/project/ecommerce',
-    result: '120% Increase in Q4 Revenue',
-    icon: <Zap className="w-8 h-8 text-blue-600" />,
-  },
-  {
-    id: 2,
-    name: 'Global Brand Identity',
-    category: 'Creative & Design',
-    image: "https://www.framer.com/creators-assets/_next/image/?url=https%3A%2F%2Fy4pdgnepgswqffpt.public.blob.vercel-storage.com%2Ftemplates%2F49749%2Foptimistic-7QAhEhFXH72T4u3Djr8Qk1z7BLNJVf&w=3840&q=100",
-    link: 'https://www.example.com/project/brand',
-    result: '25% Higher Brand Recall',
-    icon: <Compass className="w-8 h-8 text-red-600" />,
-  },
-  {
-    id: 3,
-    name: 'SaaS User Experience Overhaul',
-    category: 'Product & UX/UI',
-    image: "/webimg1.jpg",
-    link: 'https://www.example.com/project/saas',
-    result: '40% Reduction in Churn Rate',
-    icon: <TrendingUp className="w-8 h-8 text-green-600" />,
-  },
-  {
-    id: 4,
-    name: 'Mobile App Launch Campaign',
-    category: 'Performance Marketing',
-    image: "https://www.framer.com/creators-assets/_next/image/?url=https%3A%2F%2Fy4pdgnepgswqffpt.public.blob.vercel-storage.com%2Ftemplates%2F54514%2Ffusion-ai-wS70RFMTxlA0bMlp8ouZoqCOQjRpFw&w=3840&q=100",
-    link: 'https://www.example.com/project/mobile',
-    result: '5M New App Downloads',
-    icon: <Zap className="w-8 h-8 text-purple-600" />,
-  },
-];
+    {
+      id: 1,
+      name: "E-commerce Platform Relaunch",
+      category: "Digital Strategy & Development",
+      image:
+        "https://www.framer.com/creators-assets/_next/image/?url=https%3A%2F%2Fy4pdgnepgswqffpt.public.blob.vercel-storage.com%2Ftemplates%2F51012%2Fxtract-xqzXUvtiwNfRpXdCNOSbHGhjlIXzdS&w=3840&q=100",
+      link: "https://www.example.com/project/ecommerce",
+      result: "120% Increase in Q4 Revenue",
+      icon: <Zap className="w-8 h-8 text-blue-600" />,
+    },
+    {
+      id: 2,
+      name: "Global Brand Identity",
+      category: "Creative & Design",
+      image:
+        "https://www.framer.com/creators-assets/_next/image/?url=https%3A%2F%2Fy4pdgnepgswqffpt.public.blob.vercel-storage.com%2Ftemplates%2F49749%2Foptimistic-7QAhEhFXH72T4u3Djr8Qk1z7BLNJVf&w=3840&q=100",
+      link: "https://www.example.com/project/brand",
+      result: "25% Higher Brand Recall",
+      icon: <Compass className="w-8 h-8 text-red-600" />,
+    },
+    {
+      id: 3,
+      name: "SaaS User Experience Overhaul",
+      category: "Product & UX/UI",
+      image: "/webimg1.jpg",
+      link: "https://www.example.com/project/saas",
+      result: "40% Reduction in Churn Rate",
+      icon: <TrendingUp className="w-8 h-8 text-green-600" />,
+    },
+    {
+      id: 4,
+      name: "Mobile App Launch Campaign",
+      category: "Performance Marketing",
+      image:
+        "https://www.framer.com/creators-assets/_next/image/?url=https%3A%2F%2Fy4pdgnepgswqffpt.public.blob.vercel-storage.com%2Ftemplates%2F54514%2Ffusion-ai-wS70RFMTxlA0bMlp8ouZoqCOQjRpFw&w=3840&q=100",
+      link: "https://www.example.com/project/mobile",
+      result: "5M New App Downloads",
+      icon: <Zap className="w-8 h-8 text-purple-600" />,
+    },
+  ];
 
   const faqs = [
     {
@@ -297,9 +298,8 @@ const WebDevelopmentPage = () => {
     },
   ];
   return (
-    <div className="bg-gray-50  min-h-screen mt-12">
+    <div className="bg-gray-50  min-h-screen mt-6">
       {/* Hero Section */}
-
       <section className="bg-white text-gray-900 min-h-screen flex items-center py-16 sm:py-24">
         <div className="max-w-7xl mx-auto w-full">
           {/* Main animated container: Stacks on mobile, 2 columns on large screens */}
@@ -315,17 +315,18 @@ const WebDevelopmentPage = () => {
                 variants={itemSlide}
                 className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium"
               >
-                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                Available For Projects
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse "></div>
+                AVAILABLE FOR PROJECTS
               </motion.div>
 
               <motion.h1
                 variants={itemSlide}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight sm:leading-tight lg:leading-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight sm:leading-tight lg:leading-tight"
               >
                 We Build Digital Experiences,{" "}
                 {/* Note: Incorporating the concept of professional service and user experience for SEO relevance */}
-                <span className="text-gray-500">Not Just Websites</span>
+                <span className="text-black">Not Just Websites</span>
+               
               </motion.h1>
 
               <motion.p
@@ -341,15 +342,15 @@ const WebDevelopmentPage = () => {
                 variants={itemSlide}
                 className="flex flex-wrap gap-4 pt-4 sm:pt-6"
               >
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base">
+                {/* <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base">
                   View Pricing <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                </button>
+                </button> */}
                 <Link
-                  to="/book-call"
-                  className="bg-black hover:bg-gray-800 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold transition-all flex items-center gap-2 text-sm sm:text-base"
-                >
-                  Book Free Call <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                </Link>
+                                  to="/book-call"
+                                  className="bg-orange-500 hover:bg-black text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base"
+                                >
+                                  Book Free Call <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                                </Link>
               </motion.div>
 
               {/* Testimonials/Stats Block */}
@@ -606,23 +607,23 @@ const WebDevelopmentPage = () => {
 
       {/* Projects */}
       <section className="py-20 bg-gray-50 font-sans">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center md:text-left mb-16">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Projects that{' '}
-            <span className="text-orange-600 rounded-lg bg-orange-100 px-2">
-              delivered results.
-            </span>
-          </h2>
-          <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto md:mx-0">
-            A look at some of the brands we've helped achieve measurable outcomes
-            across digital strategy, development, and design.
-          </p>
-        </div>
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center md:text-left mb-16">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+              Projects that{" "}
+              <span className="text-orange-600 rounded-lg px-2">
+                delivered results.
+              </span>
+            </h2>
+            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto md:mx-0">
+              A look at some of the brands we've helped achieve measurable
+              outcomes across digital strategy, development, and design.
+            </p>
+          </div>
 
-        {/* Project Grid */}
-       <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+          {/* Project Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
             {/* CORRECTED: Changed 'projects.map' to 'initialProjects.map' */}
             {initialProjects.map((project, idx) => (
               <div
@@ -630,8 +631,8 @@ const WebDevelopmentPage = () => {
                 className="relative rounded-3xl h-96 p-8 flex flex-col justify-end shadow-xl transition-all duration-300 ease-in-out transform hover:scale-[1.03] overflow-hidden group"
                 style={{
                   backgroundImage: `url(${project.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               >
                 {/* Image Overlay */}
@@ -665,10 +666,8 @@ const WebDevelopmentPage = () => {
               </div>
             ))}
           </div>
-        
-        
-      </div>
-    </section>
+        </div>
+      </section>
 
       {/* Pricing */}
       {/* <section className="py-20 bg-white">
@@ -742,9 +741,9 @@ const WebDevelopmentPage = () => {
           <motion.div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column: Title and CTA */}
             <motion.div variants={itemVariants}>
-              <div className="bg-gray-900 text-orange-500 px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6 shadow-md">
-                // FAQS //
-              </div>
+              <span className="text-orange-500 font-semibold text-sm md:text-lg uppercase tracking-wider">
+                FAQs
+              </span>
               <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                 Questions <span className="text-gray-400">& answers.</span>
               </h2>
@@ -769,7 +768,7 @@ const WebDevelopmentPage = () => {
                   </div>
                 </div>
                 <a
-                  href="/schedule"
+                  href="/book-call"
                   className="w-full bg-black text-white py-3 rounded-xl font-semibold hover:bg-orange-500 transition-colors flex items-center justify-center gap-2"
                 >
                   Book Free Call <Phone className="w-4 h-4" />
@@ -815,6 +814,9 @@ const WebDevelopmentPage = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Contact Section */}
+      <ContactSection />
     </div>
   );
 };

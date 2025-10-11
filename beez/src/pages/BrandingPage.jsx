@@ -1,129 +1,93 @@
 import React, { useState, useEffect } from "react";
 import {
   ArrowRight,
-  Code,
-  Database,
-  Globe,
-  Layers,
+  Pencil,
+  BarChart2,
+  Megaphone,
+  RefreshCcw,
+  Monitor,
   Zap,
-  CheckCircle,
   ChevronDown,
   Star,
   Phone,
-  Mail,
-  MapPin,
 } from "lucide-react";
 import { motion } from "framer-motion";
-
+import ContactSection from "../components/ContactSection";
+import { Link } from "react-router-dom";
 
 const WebDevelopmentPage = () => {
+  const [scrollCol1, setScrollCol1] = useState(0);
+  const [scrollCol2, setScrollCol2] = useState(0);
+
   const [scrollPosition, setScrollPosition] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
   // Auto-scroll animation for image grid
- 
+
+  const rightImagesCol1 = [
+    "https://img.freepik.com/premium-vector/elegant-luxury-logo-design-featuring-golden-elements-premium-branding-highend-businesses_1184980-10363.jpg",
+    "https://cdn.dribbble.com/userupload/16279500/file/original-05fd4e6eae00bed6e978a728f4921800.png?format=webp&resize=400x300&vertical=center",
+    "https://www.logopeople.in/wp-content/uploads/2023/05/Less-is-more-always-1.png",
+    "https://img.freepik.com/premium-photo/x-k-x-letter-logo-design-luxury-gold-monogram-emblem_1308175-168995.jpg?semt=ais_hybrid&w=740&q=80",
+  ];
+
+  const rightImagesCol2 = [
+    "https://i.pinimg.com/236x/81/e6/ce/81e6ce9935e6aff43903bedc35d64754.jpg",
+    "https://static.vecteezy.com/system/resources/previews/008/561/289/non_2x/beauty-woman-fashion-logo-boutique-abstract-design-icon-illustration-vector.jpg",
+
+    "https://www.logopeople.in/wp-content/uploads/2023/05/Less-is-more-always-1.png",
+    "https://marketplace.canva.com/EAFv_yqJeek/2/0/1600w/canva-black-%26-white-minimalist-signature-personal-brand-logo-XA8Ge8-5GII.jpgg",
+  ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setScrollPosition(prev => (prev + 0.5) % 100);
-    }, 30);
-    return () => clearInterval(interval);
+    let animationFrame;
+    const animate = () => {
+      setScrollCol1((prev) => (prev + 0.1) % 100); // Scroll down
+      setScrollCol2((prev) => (prev - 0.1 + 100) % 100); // Scroll up
+      animationFrame = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
-  
-    // Sample project images data
-  const heroImages = [
-    { color: 'bg-gradient-to-br from-red-400 to-red-600', size: 'tall' },
-    { color: 'bg-gradient-to-br from-yellow-400 to-orange-500', size: 'wide' },
-    { color: 'bg-gradient-to-br from-green-400 to-teal-500', size: 'tall' },
-    { color: 'bg-gradient-to-br from-blue-400 to-indigo-600', size: 'wide' },
-    { color: 'bg-gradient-to-br from-purple-400 to-pink-500', size: 'tall' },
-    { color: 'bg-gradient-to-br from-gray-600 to-gray-800', size: 'wide' }
-  ];
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setScrollPosition((prev) => (prev + 0.5) % 100);
+  //   }, 30);
+  //   return () => clearInterval(interval);
+  // }, []);
+
   const services = [
     {
-      title: "Business Websites",
-      description: "Fast, modern websites for branding & lead generation.",
-      icon: <Globe className="w-8 h-8" />,
+      icon: "https://res.cloudinary.com/dwz07ormq/image/upload/v1760180491/Brand-Design-icon-new-001_ohgnzj.png",
+      title: "Visual Identity",
+      description:
+        "Guidelines, icons, typography, illustrations, patterns, and other visual elements that help attract your audience and engage them.",
     },
     {
-      title: "Custom Web Applications",
-      description: "Scalable, dynamic web apps with backend logic.",
-      icon: <Code className="w-8 h-8" />,
+      icon: "https://res.cloudinary.com/dwz07ormq/image/upload/v1760180491/Brand-Strategy-icon-001_z6ncpn.png",
+      title: "Brand Strategy & Communication",
+      description:
+        "360° strategic plan to provide your brand with a unique identity to build customer trust using name, tagline & multiple brand touchpoints.",
     },
     {
-      title: "E-Commerce Development",
-      description: "Product catalogs, payments, dashboards.",
-      icon: <Layers className="w-8 h-8" />,
+      icon: "https://res.cloudinary.com/dwz07ormq/image/upload/v1760180491/Brand-Messaging-icon-new-001_f15d5k.png",
+      title: "Logo Design & Branding Services",
+      description:
+        "Click-worthy, compelling, and consistent brand messaging that effectively communicates your brand story & product offering.",
     },
     {
-      title: "Portfolio / Agency Sites",
-      description: "Visually stunning, conversion-optimized sites.",
-      icon: <Zap className="w-8 h-8" />,
+      icon: "https://res.cloudinary.com/dwz07ormq/image/upload/v1760180491/Rebranding-icon-001_i9umrn.png",
+      title: "Rebranding Services",
+      description:
+        "Refreshed brand image to offer new perspectives and visual transformation that aligns with your core values & audience.",
     },
     {
-      title: "Landing Pages & Microsites",
-      description: "Built for campaigns and product launches.",
-      icon: <CheckCircle className="w-8 h-8" />,
+      icon: "https://res.cloudinary.com/dwz07ormq/image/upload/v1760180491/Brand-Strategy-icon-001_z6ncpn.png",
+      title: "Website Design & Development",
+      description:
+        "Stunning and user-friendly web identities that strengthen your brand’s credibility and accelerate web presence.",
     },
   ];
-
-  const techStack = {
-    Frontend: ["React", "Next.js", "HTML", "TailwindCSS"],
-    Backend: ["Node.js", "Express.js", "Firebase"],
-    Database: ["MongoDB", "PostgreSQL"],
-    Deployment: ["Vercel", "Netlify", "AWS"],
-  };
-
-  const process = [
-    {
-      title: "Discovery & Research",
-      desc: "Understand your business goals and audience.",
-    },
-    { title: "Wireframing & Design", desc: "Create UI/UX focused prototypes." },
-    {
-      title: "Development & Testing",
-      desc: "Agile coding with performance optimization.",
-    },
-    {
-      title: "Launch & Handover",
-      desc: "Deploy securely and ensure smooth delivery.",
-    },
-    {
-      title: "Support & Growth",
-      desc: "Continuous improvement, analytics, and updates.",
-    },
-  ];
-
-  const projects = [
-    { name: "QuoteKaro", category: "SaaS for Studios", color: "bg-yellow-400" },
-    {
-      name: "Pet Junction",
-      category: "Custom Marketplace",
-      color: "bg-green-200",
-    },
-    { name: "Sabgumo", category: "Business Landing", color: "bg-red-400" },
-  ];
-
-  const testimonials = [
-    {
-      quote:
-        "BeezTech delivered a flawless website within our timeline—and their post-launch support has been top-notch.",
-      author: "Rahul Mehta",
-      role: "Founder, TechConsult India",
-    },
-    {
-      quote:
-        "They didn't just build, they understood our business. Best investment we made in our startup journey.",
-      author: "Priya Sharma",
-      role: "Co-Founder, HealthTrack App",
-    },
-    {
-      quote:
-        "Working with BeezTech felt like having an extension of our own team. Transparent communication, no hidden costs.",
-      author: "Amit Patel",
-      role: "CEO, RetailHub Solutions",
-    },
-  ];
-
   const faqs = [
     {
       q: "How does BeezTech ensure my website is scalable?",
@@ -174,399 +138,236 @@ const WebDevelopmentPage = () => {
     { number: "80k+", label: "Monthly visitors via SEO content hub" },
     { number: "100%", label: "Client satisfaction rate across paid users" },
   ];
+  const itemSlide = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+  };
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+    },
+  };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-white min-h-screen ">
       {/* Hero Section */}
-      
-      <section className="bg-white text-gray-900 min-h-screen flex items-center relative overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-          {/* Left Content */}
-          <div>
-            <div className="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-full text-sm mb-8 font-medium">
-              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-              Available For Projects
-            </div>
 
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              World-Class Design Partner <span className="text-gray-500">For AI Startups</span>
-            </h1>
-
-            <p className="text-xl text-gray-600 mb-10 max-w-xl">
-              Fast, reliable, and scalable design solutions tailored for your growing startup.
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-12">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-xl">
-                View Pricing <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-full font-semibold transition-all flex items-center gap-2">
-                Book Free Call <Phone className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-3">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-12 h-12 rounded-full bg-gray-300 border-2 border-white"
-                  ></div>
-                ))}
-                <div className="w-12 h-12 rounded-full bg-black text-white border-2 border-white flex items-center justify-center text-sm font-bold">
-                  50+
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <div className="flex text-orange-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <span className="text-gray-700 font-medium text-sm">Trusted By 50+ Businesses</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Horizontal Scrolling Grid */}
-          <div className="relative h-[600px] overflow-hidden">
-            <div 
-              className="flex flex-col gap-4 absolute"
-              style={{ 
-                transform: `translateY(-${scrollPosition}%)`,
-                transition: 'transform 0.05s linear'
-              }}
-            >
-              {/* First Row */}
-              <div className="flex gap-4">
-                <div className="w-72 h-96 bg-red-500 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-400/50 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm p-4 text-white">
-                    
-                  </div>
-                </div>
-                <div className="w-72 h-96 bg-gray-100 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-32 h-40 bg-white rounded-lg shadow-xl"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Second Row */}
-              <div className="flex gap-4">
-                <div className="w-72 h-80 bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative">
-                  <div className="absolute inset-0 p-8 flex flex-col justify-center">
-                    
-                    <div className="text-white text-xs leading-relaxed">
-                      HELLOJPHONE<br/>
-                      PASSPORT<br/>
-                      REAL EVENT
-                    </div>
-                  </div>
-                </div>
-                <div className="w-72 h-80 bg-gradient-to-br from-gray-400 to-gray-600 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.3),transparent)]"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-40 h-72 bg-black rounded-3xl shadow-2xl p-6 flex flex-col justify-between">
-                      <div className="text-white text-center">
-                        <div className="text-sm mb-2">European</div>
-                        <div className="text-xs">Space Week</div>
-                        <div className="text-2xl font-bold">2022</div>
-                      </div>
-                      <div className="text-white text-[8px] leading-tight opacity-70">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Third Row */}
-              <div className="flex gap-4">
-                <div className="w-72 h-96 bg-gradient-to-br from-green-200 to-green-400 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-48 h-72 bg-white/90 backdrop-blur rounded-2xl shadow-2xl transform -rotate-3 flex items-center justify-center">
-                      <div className="text-black text-4xl font-bold">SOS</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-72 h-96 bg-gradient-to-br from-orange-300 via-orange-400 to-red-400 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-white text-6xl font-black opacity-20">BOXMOX</div>
-                  </div>
-                  <div className="absolute bottom-8 left-8 text-black font-bold text-2xl">
-                    BOX<br/>MO
-                  </div>
-                </div>
-              </div>
-
-              {/* Duplicate rows for seamless loop */}
-              <div className="flex gap-4">
-                <div className="w-72 h-96 bg-red-500 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-400/50 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm p-4 text-white">
-                    <div className="text-2xl font-bold">TAPE</div>
-                  </div>
-                </div>
-                <div className="w-72 h-96 bg-gray-100 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-6xl font-bold text-gray-300">A5</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="bg-black text-white px-4 py-2 rounded-full text-sm font-semibold">
-              // Why Us //
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-5xl lg:text-6xl font-bold mb-6">
-                Proven results{" "}
-                <span className="text-gray-400">for every project</span>
-              </h2>
-            </div>
-            <div>
-              <p className="text-xl text-gray-600">
-                We combine strategy, speed, and skill to deliver exceptional
-                design — every time.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {stats.map((stat, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow"
+      <section className="px-4 sm:px-6 text-gray-900 min-h-screen flex items-center py-16 sm:py-28">
+        <div className="max-w-7xl mx-auto w-full">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
+            {/* Left Content */}
+            <div className="space-y-4  lg:space-y-4">
+              <motion.div
+                variants={itemSlide}
+                className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium"
               >
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-4xl font-bold">{stat.number}</h3>
-                  <div className="flex gap-1">
-                    {[...Array(idx + 1)].map((_, i) => (
-                      <div
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                BRANIDING SERVICES
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="space-y-2 sm:space-y-4   "
+              >
+                <h1 className="text-4xl sm:text-6xl   md:text-[65px]  font-pilogue font-extrabold leading-tight">
+                  <span className="block">Transform,  </span>
+                  <span className="block">Ideas Into </span>{" "}
+                  <span className="block">Iconic Brands.</span>
+                </h1>
+              </motion.div>
+              {/* Description - Mobile responsive */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+               className="text-normal sm:text-xl text-gray-600 max-w-xl"
+              >
+                From branding to media, marketing to development 
+               
+              </motion.p>
+
+              <motion.div
+                variants={itemSlide}
+                className="flex flex-wrap gap-4 pt-4 sm:pt-6"
+              >
+                {/* <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base">
+                  View Pricing <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </button> */}
+                <Link
+                  to="/book-call"
+                  className="bg-orange-500 hover:bg-black text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base"
+                >
+                  Book Free Call <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                </Link>
+              </motion.div>
+              {/* Testimonials/Stats Block */}
+              <motion.div
+                variants={itemSlide}
+                className="flex items-center gap-4 pt-4"
+              >
+                <div className="flex -space-x-3">
+                  {[...Array(3)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 border-2 border-white"
+                    ></div>
+                  ))}
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black text-white border-2 border-white flex items-center justify-center text-xs sm:text-sm font-bold">
+                    50+
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex text-orange-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
                         key={i}
-                        className="w-2 h-2 bg-orange-500 rounded-full"
-                      ></div>
+                        className="w-3 h-3 sm:w-4 sm:h-4 fill-current"
+                      />
                     ))}
                   </div>
+                  <span className="text-gray-700 font-medium text-xs sm:text-sm">
+                    Trusted By 50+ Businesses
+                  </span>
                 </div>
-                <p className="text-gray-600">{stat.label}</p>
+              </motion.div>
+            </div>
+
+            {/* Right Side - Opposite Scrolling Columns */}
+            <div className="flex gap-4  overflow-hidden h-[600px] relative">
+              {/* Column 1 */}
+              <div
+                className="flex flex-col gap-4 flex-shrink-0"
+                style={{
+                  transform: `translateY(-${scrollCol1}%)`,
+                  transition: "transform 0.05s linear",
+                }}
+              >
+                {rightImagesCol1.map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="w-72 h-96 rounded-3xl overflow-hidden  flex-shrink-0"
+                  >
+                    <img
+                      src={img}
+                      alt={`img-${idx}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+
+              {/* Column 2 */}
+              <div
+                className="flex flex-col gap-4 flex-shrink-0"
+                style={{
+                  transform: `translateY(-${scrollCol2}%)`,
+                  transition: "transform 0.05s linear",
+                }}
+              >
+                {rightImagesCol2.map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="w-72 h-96 rounded-3xl overflow-hidden  flex-shrink-0"
+                  >
+                    <img
+                      src={img}
+                      alt={`img-${idx}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              What We Offer
-            </h2>
-            <p className="text-xl text-gray-600">
-              Web Development Services Tailored to Your Goals
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-8 hover:shadow-xl transition-all transform hover:-translate-y-2"
-              >
-                <div className="text-orange-500 mb-4">{service.icon}</div>
-                <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Stack */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              Tech Stack We Use
-            </h2>
-            <p className="text-xl text-gray-600">
-              Built with Modern, Battle-Tested Technologies
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Object.entries(techStack).map(([category, techs]) => (
-              <div key={category} className="bg-gray-50 rounded-2xl p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Database className="w-5 h-5 text-orange-500" />
-                  {category}
-                </h3>
-                <ul className="space-y-2">
-                  {techs.map((tech, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-center gap-2 text-gray-700"
-                    >
-                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-gray-600 mt-12 italic">
-            "We choose the right tech for your project's vision and scale—not
-            just what's trendy."
-          </p>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              How We Build Websites That Scale
-            </h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            {process.map((step, idx) => (
-              <div key={idx} className="flex gap-6 mb-12 last:mb-0">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center font-bold text-xl">
-                    {idx + 1}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-400">{step.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="bg-black text-white px-4 py-2 rounded-full text-sm font-semibold">
-              // Work
-            </div>
-          </div>
-
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            Projects that{" "}
-            <span className="text-gray-400">delivered results.</span>
+      <section className="bg-black text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12">
+            360° Suite of Digital Branding Services
           </h2>
-          <p className="text-gray-600 mb-12">
-            A look at some of the brands we've helped — and the outcomes we've
-            delivered.
-          </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, idx) => (
-              <div
-                key={idx}
-                className={`${project.color} rounded-2xl h-96 p-8 flex flex-col justify-end hover:scale-105 transition-transform cursor-pointer`}
-              >
-                <div className="bg-white rounded-xl p-4 inline-flex items-center justify-between">
-                  <div>
-                    <h3 className="font-bold text-lg">{project.name}</h3>
-                    <p className="text-sm text-gray-600">{project.category}</p>
-                  </div>
-                  <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                    <ArrowRight className="w-5 h-5 text-white" />
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            {services.map((service, idx) => (
+              <div key={idx} className="flex flex-col items-center text-center">
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="mb-4  w-32 h-32"
+                />
+                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                <p className="text-gray-300 text-sm">{service.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              Smart pricing.{" "}
-              <span className="text-gray-400">Remarkable design.</span>
+      {/* Rebrand section */}
+      <section className="bg-black text-white py-20 px-6 md:px-20">
+        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
+          {/* Text Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="w-1/2 justify-center items-center"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Launch your New Brand or Transform your existing Branding – With
+              Us...
             </h2>
-            <p className="text-gray-600">
-              Pick your plan and start designing today. One flat fee. Unlimited
-              design. Zero stress.
+            <p className="text-gray-300 text-xl mb-4">
+              Whether you’re introducing your product or service into a
+              competitive market or planning a complete branding revamp, our
+              digital branding services are the perfect solution to your
+              worries.
             </p>
-          </div>
+            <p className="text-gray-300 text-xl mb-4">
+              The key idea is to present a memorable visual identity and for
+              that, we thoroughly analyze your brand requirements and objectives
+              – combined into a robust brand strategy.
+            </p>
+            <p className="text-gray-300 text-xl ">
+              While working on the strategy, we collaborate with you to
+              conceptualize your brand launch campaign and launch/optimize your
+              existing brand activations.
+            </p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="border-2 border-gray-200 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <Layers className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Basic Website</h3>
-              <p className="text-4xl font-bold mb-6">₹25K-60K</p>
-              <p className="text-gray-600 mb-6">
-                Fast, modern websites for branding & lead generation
-              </p>
-              <button className="w-full bg-gray-100 hover:bg-gray-200 text-black py-3 rounded-xl font-semibold transition-all">
-                Book Free Call
-              </button>
-            </div>
-
-            <div className="border-2 border-gray-200 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Dynamic Web App</h3>
-              <p className="text-4xl font-bold mb-6">₹60K-1.5L</p>
-              <p className="text-gray-600 mb-6">
-                Scalable web apps with backend logic
-              </p>
-              <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-xl font-semibold transition-all">
-                Book Free Call
-              </button>
-            </div>
-
-            <div className="bg-black text-white rounded-2xl p-8">
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
-                <Code className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Custom SaaS</h3>
-              <p className="text-4xl font-bold mb-6">₹1.5L-3L+</p>
-              <p className="text-gray-400 mb-6">
-                Full-scale platforms for complex business logic
-              </p>
-              <button className="w-full bg-white hover:bg-gray-100 text-black py-3 rounded-xl font-semibold transition-all">
-                Book Free Call
-              </button>
-            </div>
-          </div>
+          {/* Image/Illustration Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="md:w-1/2  flex justify-center items-center"
+          >
+            <img
+              src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760181564/From-Brand-Launch-to-Rebranding_wxswtn.png"
+              alt="Rebrand Illustration"
+              className="w-full"
+            />
+          </motion.div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ Section */}
       <motion.section
-        className="py-20 bg-gray-50"
+        className="py-20 bg-white"
         initial="hidden"
         whileInView="visible" // Triggers animation when the section scrolls into view
         viewport={{ once: true, amount: 0.2 }} // Only animate once, when 20% visible
@@ -576,9 +377,9 @@ const WebDevelopmentPage = () => {
           <motion.div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column: Title and CTA */}
             <motion.div variants={itemVariants}>
-              <div className="bg-gray-900 text-yellow-500 px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6 shadow-md">
-                // FAQS //
-              </div>
+              <span className="text-orange-500 font-semibold text-sm md:text-lg uppercase tracking-wider">
+                FAQs
+              </span>
               <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                 Questions <span className="text-gray-400">& answers.</span>
               </h2>
@@ -590,7 +391,7 @@ const WebDevelopmentPage = () => {
               {/* Contact Card */}
               <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Zap className="w-6 h-6 text-gray-900" />
                   </div>
                   <div>
@@ -603,8 +404,8 @@ const WebDevelopmentPage = () => {
                   </div>
                 </div>
                 <a
-                  href="/schedule"
-                  className="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
+                  href="/book-call"
+                  className="w-full bg-black text-white py-3 rounded-xl font-semibold hover:bg-orange-500 transition-colors flex items-center justify-center gap-2"
                 >
                   Book Free Call <Phone className="w-4 h-4" />
                 </a>
@@ -649,6 +450,9 @@ const WebDevelopmentPage = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Contact Section */}
+      <ContactSection />
     </div>
   );
 };

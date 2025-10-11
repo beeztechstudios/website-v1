@@ -98,13 +98,13 @@ export default function Navbar() {
     <>
       {/* --- Desktop Navbar --- */}
       <nav
-        className={`hidden md:block fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out 
+        className={`hidden md:block fixed left-1/2 -translate-x-1/2 transition-all z-80 duration-500 ease-out 
           ${isScrolled 
-            ? 'w-[90%] max-w-[900px] top-2' 
+            ? 'w-[90%] max-w-[950px] top-2' 
             : 'w-[95%] max-w-[1330px] top-4'
           }`}
       >
-        <div className="bg-white/50 backdrop-blur-2xl rounded-full  px-4 lg:px-8 py-3 ">
+        <div className="bg-white/70 backdrop-blur-2xl rounded-full  px-4 lg:px-8 py-3 ">
           <div className="flex items-center justify-between ">
             {/* Logo */}
             <div className="w-[120px] lg:w-[160px] ">
