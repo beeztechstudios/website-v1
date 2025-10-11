@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { Phone, Star ,ArrowRight } from "lucide-react";
 const HeroSection = ({ scrollToServices }) => {
   return (
-    <div className="relative z-10 px-4 sm:px-6 lg:px-16 mt-0 sm:mt-16  lg:mt-8 y-1 md:py-12 lg:py-12 ">
-      <div className="max-w-7xl mx-auto ">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-0 lg:gap-8 ">
+    <div className="relative z-10 px-4 sm:px-6 lg:px-16 py-12 overflow-hidden">
+  <div className="max-w-7xl mx-auto">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

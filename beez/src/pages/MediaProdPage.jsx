@@ -135,7 +135,7 @@ const MediaProductionPage = () => {
     },
   };
   return (
-    <div className="bg-white min-h-screen ">
+    <div className="bg-white min-h-screen mt-4">
       {/* --- Hero Section --- */}
       <section className="bg-white px-4 sm:px-6 text-gray-900 min-h-screen flex items-center py-16 sm:py-28">
         <div className="max-w-7xl mx-auto w-full">
@@ -264,24 +264,24 @@ const MediaProductionPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="md:w-1/2" // Adjusted width class for better responsiveness
+            className="w-full md:w-1/2 " // Adjusted width class for better responsiveness
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Launch Your Product Story: Explainer Videos & Pitch Decks.
             </h2>
-            <p className="text-gray-300 text-xl mb-4">
+            <p className="text-gray-300 text-base md:text-xl mb-4">
               For **SaaS** companies and those at the **MVP stage**, clear
               communication is everything. We create dynamic explainer videos
               and highly polished pitch presentations to articulate your value
               instantly.
             </p>
-            <p className="text-gray-300 text-xl mb-4">
+            <p className="text-gray-300 text-base md:text-xl mb-4">
               Our team structures the perfect narrative, designs captivating
               motion graphics, and prepares every slide for your **pitch
               presentation**, ensuring you secure that crucial funding or user
               base.
             </p>
-            <p className="text-gray-300 text-xl ">
+            <p className="text-gray-300 text-base md:text-xl ">
               From concept to final edit, we ensure your visual content is
               optimized for conversion, clarity, and maximum impact in front of
               investors or potential customers.
@@ -314,91 +314,89 @@ const MediaProductionPage = () => {
 
       {/* --- FAQ Section (Re-themed) --- */}
       <motion.section
-        className="py-20 bg-white"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="grid lg:grid-cols-2 gap-12">
-            {/* Left Column: Title and CTA */}
-            <motion.div variants={itemVariants}>
-              <span className="text-orange-500 font-semibold text-sm md:text-lg uppercase tracking-wider">
-                MEDIA PRODUCTION FAQs
-              </span>
-              <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                Your Creative{" "}
-                <span className="text-gray-400">Questions Answered.</span>
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                Everything you need to know about our **creative direction**,
-                **video production**, and design service timelines.
-              </p>
-
-              {/* Contact Card (unchanged) */}
-              <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-6 h-6 text-gray-900" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900">
-                      Ready to elevate your visuals?
+              className="py-20 bg-gray-50"
+              initial="hidden"
+              whileInView="visible" // Triggers animation when the section scrolls into view
+              viewport={{ once: true, amount: 0.2 }} // Only animate once, when 20% visible
+              variants={containerVariants}
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div className="grid lg:grid-cols-2 gap-12">
+                  {/* Left Column: Title and CTA */}
+                  <motion.div variants={itemVariants}>
+                    <span className="text-orange-500 font-semibold text-sm md:text-lg uppercase tracking-wider">
+                      FAQs
+                    </span>
+                    <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                      Questions <span className="text-gray-400">& answers.</span>
+                    </h2>
+                    <p className="text-xl text-gray-600 mb-8">
+                      Everything you need to know about our **web development** and
+                      recurring support service.
                     </p>
-                    <p className="text-sm text-gray-600">
-                      Book a free consultation to discuss your project.
-                    </p>
-                  </div>
-                </div>
-                <a
-                  href="/book-call"
-                  className="w-full bg-black text-white py-3 rounded-xl font-semibold hover:bg-orange-500 transition-colors flex items-center justify-center gap-2"
-                >
-                  Book Free Call <Phone className="w-4 h-4" />
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Right Column: FAQ List */}
-            <motion.div className="space-y-4" variants={containerVariants}>
-              {faqs.map((faq, idx) => (
-                <motion.div
-                  key={idx}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"
-                  variants={itemVariants}
-                >
-                  <button
-                    onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-yellow-50 transition-colors"
-                  >
-                    <span className="font-bold text-gray-900">{faq.q}</span>
-                    <ChevronDown
-                      className={`w-5 h-5 transition-transform text-orange-500 ${
-                        // Changed to orange-500 to match theme
-                        openFaq === idx ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-
-                  {/* Answer Content */}
-                  {openFaq === idx && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4"
-                    >
-                      {faq.a}
-                    </motion.div>
-                  )}
+      
+                    {/* Contact Card */}
+                    <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+                      <div className="flex items-center gap-4 mb-5">
+                        <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Zap className="w-6 h-6 text-gray-900" />
+                        </div>
+                        <div>
+                          <p className="font-bold text-gray-900">
+                            Have more questions?
+                          </p>
+                          <p className="text-sm text-gray-600">
+                            Book a free discovery call with a founder
+                          </p>
+                        </div>
+                      </div>
+                      <a
+                        href="/book-call"
+                        className="w-full bg-black text-white py-3 rounded-xl font-semibold hover:bg-orange-500 transition-colors flex items-center justify-center gap-2"
+                      >
+                        Book Free Call <Phone className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </motion.div>
+      
+                  {/* Right Column: FAQ List */}
+                  <motion.div className="space-y-4" variants={containerVariants}>
+                    {faqs.map((faq, idx) => (
+                      <motion.div // Each FAQ item uses motion
+                        key={idx}
+                        className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100"
+                        variants={itemVariants} // Applies staggered animation
+                      >
+                        <button
+                          onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
+                          className="w-full p-6 text-left flex items-center justify-between hover:bg-yellow-50 transition-colors"
+                        >
+                          <span className="font-bold text-gray-900">{faq.q}</span>
+                          <ChevronDown
+                            className={`w-5 h-5 transition-transform text-yellow-500 ${
+                              openFaq === idx ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+      
+                        {/* Answer Content - Uses Framer Motion's AnimatePresence for smooth open/close */}
+                        {openFaq === idx && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4"
+                          >
+                            {faq.a}
+                          </motion.div>
+                        )}
+                      </motion.div>
+                    ))}
+                  </motion.div>
                 </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.section>
+              </div>
+            </motion.section>
 
       {/* --- Contact Section --- */}
       <ContactSection />

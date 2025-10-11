@@ -21,3 +21,7 @@
 .animate-spin-slow {
   animation: spin-slow 15s linear infinite; /* Adjust duration for speed */
 }
+html,
+body {
+  overflow-x: hidden !important;
+}

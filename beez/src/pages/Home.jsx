@@ -22,7 +22,7 @@ function Home() {
   return (
     <>
     
-    <div className="w-screen ">
+    <div className="w-screen mt-4">
       <HeroSection scrollToServices={scrollToServices} />
       <Slider />
       <AboutUsSection />
@@ -30,9 +30,7 @@ function Home() {
       
       <ServicesSection ref={servicesRef} />
       <PortfolioPage/> 
-      {/* <TestimonialsSection /> */}
-      {/* <ContactSection /> */}
-      {/* <BookACallForm/> */}
+      
 
     </div>
     </>

@@ -30,12 +30,7 @@ const WebDevelopmentPage = () => {
   const [openFaq, setOpenFaq] = useState(-1);
   // Auto-scroll animation for image grid
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setScrollPosition((prev) => (prev + 0.5) % 100);
-    }, 30);
-    return () => clearInterval(interval);
-  }, []);
+  
 
   const services = [
     {
@@ -298,10 +293,10 @@ const WebDevelopmentPage = () => {
     },
   ];
   return (
-    <div className="bg-gray-50  min-h-screen mt-6">
+    <div className="  min-h-screen mt-4">
       {/* Hero Section */}
-      <section className="bg-white text-gray-900 min-h-screen flex items-center py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto w-full">
+      <section className="bg-white  px-4 sm:px-6  text-gray-900 min-h-screen  flex items-center py-16 sm:py-24">
+        <div className="max-w-7xl   mx-auto w-full">
           {/* Main animated container: Stacks on mobile, 2 columns on large screens */}
           <motion.div
             className="container mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10"
@@ -439,8 +434,9 @@ const WebDevelopmentPage = () => {
         </div>
       </section>
 
+      
       {/* Services Section */}
-      <section className="bg-white py-16 sm:py-24 text-gray-900">
+      <section className="bg-white px-4 sm:px-6 py-16 sm:py-24 text-gray-900">
         <div className="max-w-7xl mx-auto ">
           {/* Section Header */}
           <motion.div
@@ -504,109 +500,10 @@ const WebDevelopmentPage = () => {
       </section>
 
       {/* Process */}
-      <section className="bg-white py-16 sm:py-24 block md:hidden">
-        <div className="max-w-7xl  mx-auto ">
-          {/* Section Header */}
-          <div className="text-center md:text-left max-w-4xl  mb-16 sm:mb-24">
-            <motion.h2
-              initial="hidden"
-              whileInView="show"
-              variants={cardReveal}
-              viewport={{ once: true, amount: 0.5 }}
-              className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-6"
-            >
-              How We Build Websites That Scale
-            </motion.h2>
-            <motion.p
-              initial="hidden"
-              whileInView="show"
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { delay: 0.2, duration: 0.6 },
-                },
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              className="text-lg text-gray-600"
-            >
-              At BeezTech, we follow a structured, proven approach to build
-              websites and platforms that are fast, scalable, and built to last.
-              Every step — from research to deployment — focuses on delivering
-              performance, security, and long-term flexibility.
-            </motion.p>
-          </div>
-
-          {/* Timeline Container */}
-          {/*
-          MOBILE: Uses vertical stacking with a left border for the timeline line.
-          DESKTOP (lg): Uses a horizontal flex layout with custom dividers/connectors.
-        */}
-          <div className="relative">
-            {/* Mobile Vertical Timeline Line */}
-            <div className="absolute left-6 top-0 bottom-0 w-1 bg-gray-200 lg:hidden rounded-full"></div>
-
-            {/* Main Content Grid */}
-            <div className="grid grid-cols-1 gap-16  lg:flex lg:flex-wrap  lg:justify-between ">
-              {timelineSteps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardReveal}
-                  initial="hidden"
-                  whileInView="show"
-                  // Stagger the animation slightly
-                  transition={{ delay: 0.1 * index }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  // CARD STYLES
-                  className="relative lg:w-1/5 bg-white p-6 sm:p-8 rounded-2xl shadow-xl transition-all duration-500 
-                           hover:shadow-2xl hover:-translate-y-1 border-t-4 border-transparent hover:border-orange-500 
-                           lg:border-none"
-                >
-                  {/* Mobile Timeline Connector Dot */}
-                  <div className="absolute -left-1 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-gray-50 lg:hidden"></div>
-
-                  {/* Desktop Horizontal Connector Line (appears between cards, except the last one) */}
-                  {index < timelineSteps.length - 1 && (
-                    <div className="hidden lg:block absolute h-0.5 bg-gray-200 w-full left-[100%] top-1/4 -translate-y-1/2 ml-4 mr-4"></div>
-                  )}
-
-                  <div className="flex items-center space-x-4 mb-4">
-                    {/* Number Badge (Circle) */}
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-orange-500 text-white font-bold text-lg shadow-md">
-                      {index + 1}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-900">
-                      {step.title}
-                    </h3>
-                  </div>
-
-                  {/* Icon (Optional for extra visual flair) */}
-                  <step.icon className="w-6 h-6 text-orange-500 mb-4" />
-
-                  {/* Description */}
-                  <p className="text-gray-600 mb-4 text-base">
-                    {step.description}
-                  </p>
-
-                  {/* Deliverable Section (Subtle Highlight) */}
-                  <div className="p-3 bg-gray-100 rounded-lg border-l-4 border-black font-medium text-sm text-gray-800">
-                    <span className="text-black font-semibold">
-                      Deliverable:
-                    </span>{" "}
-                    {step.deliverable}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Projects */}
-      <section className="py-20 bg-gray-50 font-sans">
+      <section className="py-20 px-4 sm:px-6 bg-gray-50 font-sans">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center md:text-left mb-16">
@@ -669,65 +566,7 @@ const WebDevelopmentPage = () => {
         </div>
       </section>
 
-      {/* Pricing */}
-      {/* <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              Smart pricing.{" "}
-              <span className="text-gray-400">Remarkable design.</span>
-            </h2>
-            <p className="text-gray-600">
-              Pick your plan and start designing today. One flat fee. Unlimited
-              design. Zero stress.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="border-2 border-gray-200 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <Layers className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Basic Website</h3>
-              <p className="text-4xl font-bold mb-6">₹25K-60K</p>
-              <p className="text-gray-600 mb-6">
-                Fast, modern websites for branding & lead generation
-              </p>
-              <button className="w-full bg-gray-100 hover:bg-gray-200 text-black py-3 rounded-xl font-semibold transition-all">
-                Book Free Call
-              </button>
-            </div>
-
-            <div className="border-2 border-gray-200 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Dynamic Web App</h3>
-              <p className="text-4xl font-bold mb-6">₹60K-1.5L</p>
-              <p className="text-gray-600 mb-6">
-                Scalable web apps with backend logic
-              </p>
-              <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-xl font-semibold transition-all">
-                Book Free Call
-              </button>
-            </div>
-
-            <div className="bg-black text-white rounded-2xl p-8">
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
-                <Code className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Custom SaaS</h3>
-              <p className="text-4xl font-bold mb-6">₹1.5L-3L+</p>
-              <p className="text-gray-400 mb-6">
-                Full-scale platforms for complex business logic
-              </p>
-              <button className="w-full bg-white hover:bg-gray-100 text-black py-3 rounded-xl font-semibold transition-all">
-                Book Free Call
-              </button>
-            </div>
-          </div>
-        </div>
-      </section> */}
+      
 
       {/* FAQ */}
       <motion.section

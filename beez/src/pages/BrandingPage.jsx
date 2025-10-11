@@ -33,8 +33,7 @@ const WebDevelopmentPage = () => {
   const rightImagesCol2 = [
     "https://i.pinimg.com/236x/81/e6/ce/81e6ce9935e6aff43903bedc35d64754.jpg",
     "https://static.vecteezy.com/system/resources/previews/008/561/289/non_2x/beauty-woman-fashion-logo-boutique-abstract-design-icon-illustration-vector.jpg",
-
-    "https://www.logopeople.in/wp-content/uploads/2023/05/Less-is-more-always-1.png",
+    "https://i.pinimg.com/236x/81/e6/ce/81e6ce9935e6aff43903bedc35d64754.jpg",
     "https://marketplace.canva.com/EAFv_yqJeek/2/0/1600w/canva-black-%26-white-minimalist-signature-personal-brand-logo-XA8Ge8-5GII.jpgg",
   ];
 
@@ -152,57 +151,52 @@ const WebDevelopmentPage = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen ">
+    <div className="bg-white min-h-screen mt-4 ">
       {/* Hero Section */}
-
       <section className="px-4 sm:px-6 text-gray-900 min-h-screen flex items-center py-16 sm:py-28">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10"
+            className="container mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center relative z-10"
             variants={container}
             initial="hidden"
             animate="show"
           >
             {/* Left Content */}
-            <div className="space-y-4  lg:space-y-4">
+            
+            <div className="space-y-4 lg:space-y-6">
               <motion.div
                 variants={itemSlide}
                 className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium"
               >
-                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse "></div>
                 BRANIDING SERVICES
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="space-y-2 sm:space-y-4   "
+              <motion.h1
+                variants={itemSlide}
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight sm:leading-tight lg:leading-tight"
               >
-                <h1 className="text-4xl sm:text-6xl   md:text-[65px]  font-pilogue font-extrabold leading-tight">
-                  <span className="block">Transform,  </span>
-                  <span className="block">Ideas Into </span>{" "}
-                  <span className="block">Iconic Brands.</span>
-                </h1>
-              </motion.div>
-              {/* Description - Mobile responsive */}
+                Transform Your Idea {" "}
+                {/* Note: Incorporating the concept of professional service and user experience for SEO relevance */}
+                <span className="text-black">Into Iconic Brand</span>
+              </motion.h1>
+
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-               className="text-normal sm:text-xl text-gray-600 max-w-xl"
+                variants={itemSlide}
+                className="text-base sm:text-xl text-gray-600 max-w-xl"
               >
-                From branding to media, marketing to development 
-               
+                Our goal is simple: create web solutions that not only look
+                stunning but also drive measurable results for your business.
               </motion.p>
 
+              {/* Buttons: Wrap when needed on small screens */}
               <motion.div
                 variants={itemSlide}
                 className="flex flex-wrap gap-4 pt-4 sm:pt-6"
               >
                 {/* <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base">
-                  View Pricing <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                </button> */}
+                                      View Pricing <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                                    </button> */}
                 <Link
                   to="/book-call"
                   className="bg-orange-500 hover:bg-black text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base"
@@ -210,6 +204,7 @@ const WebDevelopmentPage = () => {
                   Book Free Call <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Link>
               </motion.div>
+
               {/* Testimonials/Stats Block */}
               <motion.div
                 variants={itemSlide}
@@ -241,9 +236,8 @@ const WebDevelopmentPage = () => {
                 </div>
               </motion.div>
             </div>
-
             {/* Right Side - Opposite Scrolling Columns */}
-            <div className="flex gap-4  overflow-hidden h-[600px] relative">
+            <div className="flex gap-4  overflow-hidden h-[400px] md:h-[600px] relative">
               {/* Column 1 */}
               <div
                 className="flex flex-col gap-4 flex-shrink-0"
@@ -255,7 +249,7 @@ const WebDevelopmentPage = () => {
                 {rightImagesCol1.map((img, idx) => (
                   <div
                     key={idx}
-                    className="w-72 h-96 rounded-3xl overflow-hidden  flex-shrink-0"
+                    className="w-38 h-38 md:w-72 md:h-72 rounded-3xl overflow-hidden  flex-shrink-0"
                   >
                     <img
                       src={img}
@@ -277,7 +271,7 @@ const WebDevelopmentPage = () => {
                 {rightImagesCol2.map((img, idx) => (
                   <div
                     key={idx}
-                    className="w-72 h-96 rounded-3xl overflow-hidden  flex-shrink-0"
+                    className="w-38 h-38 md:w-72 md:h-72 rounded-3xl overflow-hidden  flex-shrink-0"
                   >
                     <img
                       src={img}
@@ -291,24 +285,30 @@ const WebDevelopmentPage = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Services Section */}
-      <section className="bg-black text-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12">
+      <section className="bg-black text-white py-20 px-4 md:px-20 overflow-hidden">
+        <div className="container max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 leading-tight">
             360° Suite of Digital Branding Services
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 place-items-center">
             {services.map((service, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center">
+              <div
+                key={idx}
+                className="flex flex-col items-center text-center bg-[#111] rounded-2xl p-6 sm:p-8 hover:scale-105 transition-all duration-300 w-full max-w-xs sm:max-w-sm"
+              >
                 <img
                   src={service.icon}
                   alt={service.title}
-                  className="mb-4  w-32 h-32"
+                  className="mb-4 w-20 h-20 sm:w-24 sm:h-24 object-contain"
                 />
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-300 text-sm">{service.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                  {service.description}
+                </p>
               </div>
             ))}
           </div>
@@ -316,32 +316,32 @@ const WebDevelopmentPage = () => {
       </section>
 
       {/* Rebrand section */}
-      <section className="bg-black text-white py-20 px-6 md:px-20">
-        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
+      <section className="bg-black text-white py-20 px-4 md:px-20">
+        <div className="container max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
           {/* Text Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="w-1/2 justify-center items-center"
+            className="w-full md:w-1/2  justify-center items-center"
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               Launch your New Brand or Transform your existing Branding – With
               Us...
             </h2>
-            <p className="text-gray-300 text-xl mb-4">
+            <p className="text-gray-300 text-base md:text-xl mb-4">
               Whether you’re introducing your product or service into a
               competitive market or planning a complete branding revamp, our
               digital branding services are the perfect solution to your
               worries.
             </p>
-            <p className="text-gray-300 text-xl mb-4">
+            <p className="text-gray-300 text-base md:text-xl  mb-4">
               The key idea is to present a memorable visual identity and for
               that, we thoroughly analyze your brand requirements and objectives
               – combined into a robust brand strategy.
             </p>
-            <p className="text-gray-300 text-xl ">
+            <p className="text-gray-300 text-base md:text-xl ">
               While working on the strategy, we collaborate with you to
               conceptualize your brand launch campaign and launch/optimize your
               existing brand activations.
@@ -354,7 +354,7 @@ const WebDevelopmentPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="md:w-1/2  flex justify-center items-center"
+            className=" md:w-1/2  flex justify-center items-center"
           >
             <img
               src="https://res.cloudinary.com/dwz07ormq/image/upload/v1760181564/From-Brand-Launch-to-Rebranding_wxswtn.png"
@@ -367,13 +367,13 @@ const WebDevelopmentPage = () => {
 
       {/* FAQ Section */}
       <motion.section
-        className="py-20 bg-white"
+        className="py-20 bg-white px-4 md:px-20"
         initial="hidden"
         whileInView="visible" // Triggers animation when the section scrolls into view
         viewport={{ once: true, amount: 0.2 }} // Only animate once, when 20% visible
         variants={containerVariants}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto ">
           <motion.div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column: Title and CTA */}
             <motion.div variants={itemVariants}>

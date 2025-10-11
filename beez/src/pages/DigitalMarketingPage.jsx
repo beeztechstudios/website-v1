@@ -364,7 +364,7 @@ const DigitalMarketingPage = () => {
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
   };
   return (
-    <div className="bg-white min-h-screen ">
+    <div className="bg-white mt-4  min-h-screen ">
       {/* Hero Section */}
        
       <section className="bg-[white] px-4 sm:px-6 text-gray-900 min-h-screen flex items-center py-16 sm:py-24">
@@ -464,7 +464,7 @@ const DigitalMarketingPage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 px-4 sm:px-6 bg-white">
+      <section className="py-2 md:py-20 px-4 sm:px-6 bg-white">
         <div className="container max-w-7xl   mx-auto ">
           <div className="text-left  mb-16">
             <span className="text-orange-500  font-semibold text-sm md:text-lg uppercase tracking-wider">
