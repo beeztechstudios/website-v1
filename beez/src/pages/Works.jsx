@@ -116,67 +116,73 @@ const PortfolioPage = () => {
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -70]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 70]);
 
-  const portfolioItems = [
-    {
-      id: 1,
-      title: 'Clay AI SaaS Website',
-      category: 'Web Design',
-      link: "/link1",
-      image: 'https://cdn.dribbble.com/userupload/8831050/file/still-feb2b5c172267b74e51f323675645788.png?format=webp&resize=400x300&vertical=center', 
-        challenge: "The client needed a scalable, modern website that could clearly communicate complex AI capabilities to a non-technical B2B audience while maintaining a high-performance score.",
-        solution: "We developed a clean, dark-themed interface using React and Tailwind CSS, focusing on intuitive navigation, animated data visualizations, and clear benefit-driven copy. We optimized images and leveraged server-side rendering for speed.",
-        results: [
-            "Increased organic traffic by 45% in the first quarter.",
-            "Reduced bounce rate by 18% compared to the old site.",
-            "Improved lead conversion rate by 12% through better CTA placement.",
-            "Achieved a 95+ score on Google PageSpeed Insights."
-        ],
-        techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "Vercel"]
-    },
-    {
-      id: 2,
-      title: 'Path to Energy',
-      category: 'Brand Identity',
-      link: "/link2",
-      image: 'https://cdn.dribbble.com/userupload/8831050/file/still-feb2b5c172267b74e51f323675645788.png?format=webp&resize=400x300&vertical=center',
-        challenge: "To create a powerful, trustworthy brand identity for a sustainable energy consulting firm that was launching in a crowded, established market.",
-        solution: "We designed a logo centered on motion and growth, chose a sophisticated palette of deep blues and vibrant greens, and established a tone of voice focused on expertise and future-proofing.",
-        results: [
-            "Successfully positioned the brand as a premium market leader.",
-            "Secured 5 major client contracts within the first month post-launch.",
-            "Received positive feedback on brand recall in industry surveys."
-        ],
-        techStack: ["Adobe Illustrator", "Figma", "Branding Guidelines", "Print Design"]
-    },
-    {
-      id: 3,
-      title: 'Builder Platform',
-      category: 'UI/UX Design',
-      image: 'https://cdn.dribbble.com/userupload/43608346/file/still-1e21036fab51249677fb28b8439f2534.png?format=webp&resize=400x300&vertical=center', 
-        challenge: "Redesigning a complex internal construction management platform to improve user efficiency and reduce training time for field managers.",
-        solution: "We conducted extensive user research, streamlined the dashboard into three primary views, and implemented a universal design system for consistency across all modules.",
-        results: [
-            "Reported 30% reduction in user errors during project logging.",
-            "Cut new user onboarding time from 8 hours to 2 hours.",
-            "Increased daily active users by 25%."
-        ],
-        techStack: ["Figma", "Sketch", "User Interviews", "Design Systems", "Prototyping"]
-    },
-    {
-      id: 4,
-      title: 'Design Agency',
-      category: 'Web Development',
-      image: 'https://cdn.dribbble.com/userupload/41264537/file/original-ab35ca1c02bfc624e8377a94316e7e35.png?format=webp&resize=400x300&vertical=center', 
-        challenge: "Developing a highly visual and interactive agency website that reflects cutting-edge design and provides a seamless mobile experience.",
-        solution: "Built a custom, responsive layout using modern CSS Grid and implemented complex scroll-based animations using Framer Motion and GSAP for a 'wow' factor.",
-        results: [
-            "Won three design awards for 'Best Interactive Website'.",
-            "Improved client retention by showcasing high-quality work effectively.",
-            "Decreased loading time despite heavy animation by employing lazy loading."
-        ],
-        techStack: ["React", "GSAP", "Three.js (for subtle effects)", "Vite", "SEO Optimization"]
-    }
-  ];
+    const portfolioItems = [
+    {
+      id: 1,
+      title: "TARAKSH",
+      category: "Brand Identity",
+      image: "https://i.imgur.com/HhNZPOo.jpeg",
+      challenge:
+        "TARAKSH, an international law firm operating in Dubai and India, wanted to establish a timeless brand identity that reflected both their professional excellence and deep-rooted spiritual values. They needed a cohesive system that could translate their ethos into every brand touchpoint—from logo to stationery and digital presence.",
+      solution:
+        "We crafted a powerful and balanced brand identity inspired by the client’s devotion to ‘Tara Mata Devi’. The logo embodies divine guidance and fairness, integrating the star symbol for purity, the letter ‘T’ for TARAKSH, the letter ‘A’ for Aksh and Lord Shiva (balance and wisdom), and the scales of justice for equality. The visual system extended to elegant business cards, letterheads, and a modern website design—combining sophistication with spirituality.",
+      results: [
+        "A distinct and meaningful brand identity aligned with the firm’s values",
+        "Consistent visual presence across print and digital platforms",
+        "Positive feedback from clients and partners on the new professional image"
+      ],
+      techStack: ["Adobe Illustrator", "Photoshop", "Figma"],
+    },
+
+    {
+      id: 2,
+      title: "HiLe",
+      category: "Brand Identity & Development",
+      image: "https://i.imgur.com/eKWRRfS.png",
+      challenge:
+        "HiLe, a tech-driven HR platform for the legal industry, needed a complete brand and digital presence to establish trust and communicate innovation. The goal was to create a distinct identity and seamless digital experience that would connect law firms with the right talent efficiently.",
+      solution:
+        "We partnered with HiLe to build their brand from the ground up starting with strategy, naming, and visual identity, followed by a modern website and product interface design. The brand identity centers on simplicity, clarity, and connection. The green dot in the logo represents growth and human focus, while the clean typography conveys professionalism. The website was designed and developed to deliver a smooth, intuitive user experience with strong performance and scalability.",
+      results: [
+        "A unified brand and digital ecosystem built from concept to launch",
+        "Increased credibility and engagement within the legal tech sector",
+        "Seamless user experience across desktop and mobile platforms"
+      ],
+      techStack: ["Adobe Illustrator", "Figma", "React", "Next.js", "Tailwind CSS"],
+    },
+    {
+      id: 3,
+      title: "Merchant Xporters",
+      category: "Brand Identity & Web Development",
+      image: "https://i.imgur.com/sToaOF2.jpeg",
+      challenge:
+        "Merchant Xporters, a global export company, needed a strong brand identity and an impactful digital presence to represent their international operations. The challenge was to create a visual language and website that communicates reliability, growth, and global connectivity.",
+      solution:
+        "We developed a complete brand identity system that conveys trust and movement through bold typography, a dynamic logo, and a clean blue color palette. The symbol reflects global connections and forward momentum, aligning with the brand’s tagline ‘Beyond Exporting’. Alongside the visual identity, we designed and developed a responsive website that highlights the company’s services and global reach with a professional, modern interface.",
+      results: [
+        "A cohesive brand identity aligned with the company’s global vision",
+        "A modern and responsive website enhancing digital credibility",
+        "Improved client engagement and stronger online presence"
+      ],
+      techStack: ["Adobe Illustrator", "Figma", "React", "Next.js", "Tailwind CSS"],
+    },
+    {
+      id: 4,
+      title: "Alliedge Healthcare",
+      category: "Brand Identity & Web Design",
+      image: "https://i.imgur.com/FEvEqr3.png",
+      challenge:
+        "Alliedge Healthcare, India’s leading SaaS-based medical software provider, needed a modern and trustworthy brand identity that would reflect innovation, care, and reliability in the healthcare technology space. The challenge was to balance a professional tech-driven aesthetic with a human, approachable feel.",
+      solution:
+        "We crafted a clean and impactful brand identity that visually communicates growth, connection, and precision in healthcare technology. The logo design combines a medical cross with forward-moving elements, symbolizing progress and digital transformation. Alongside the branding, we designed a user-focused website showcasing their SaaS solutions with clarity and credibility, ensuring an engaging and seamless user experience.",
+      results: [
+        "A strong, modern brand identity that conveys trust and innovation",
+        "Enhanced digital presence through a user-centric website",
+        "Strengthened brand positioning as India’s #1 SaaS-based medical software company"
+      ],
+      techStack: ["Adobe Illustrator", "Figma", "React", "Next.js", "Tailwind CSS"],
+    },
+  ];
 
 // ===============================================
 // 4. PORTFOLIO CARD COMPONENT (Updated with click handler)
